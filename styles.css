@@ -1,0 +1,121 @@
+/* === RESETEO GLOBAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Evita que el padding agrande los inputs */
+}
+/* === fondo === */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url("teacher.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === CONTENEDOR GENERAL === */
+.container {
+  background-color: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+}
+
+/* === TÍTULOS === */
+h1 {
+  margin-bottom: 0.5rem;
+  color: #8b0000;
+}
+
+p {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 1.5rem;
+}
+
+/* === CAMPOS DE ENTRADA === */
+.input-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.input-group .icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #8b0000;
+  font-size: 18px;
+}
+
+.input-group input {
+  width: 100%; /* ocupa todo el ancho disponible */
+  padding: 12px 40px; /* deja espacio para el ícono */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s;
+  box-sizing: border-box; /* evita que el padding expanda el ancho */
+}
+
+.input-group input:focus {
+  border-color: #8b0000;
+}
+
+/* === BOTÓN === */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #8b0000;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #a60000;
+}
+
+/* === MENSAJES === */
+.mensaje {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mensaje.error {
+  color: #d9534f;
+}
+
+.mensaje.exito {
+  color: #28a745;
+}
+
+/* === ENLACE === */
+.link {
+  margin-top: 1rem;
+  font-size: 14px;
+}
+
+.link a {
+  color: #008b1c;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}

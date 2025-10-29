@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Usuario</title>
+
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Íconos FontAwesome (versión segura y actual) -->
+  <script src="https://kit.fontawesome.com/7f3e1f9b9d.js" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Registrar Usuario</h1>
+    <p>Completa tus datos para registrarte</p>
+
+    <div class="input-group">
+      <i class="fas fa-user icon"></i>
+      <input type="text" id="nombre" placeholder="Nombre">
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-user-tag icon"></i>
+      <input type="text" id="apellido" placeholder="Apellidos">
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-envelope icon"></i>
+      <input type="email" id="correo" placeholder="Correo electrónico">
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-lock icon"></i>
+      <input type="password" id="contrasena" placeholder="Contraseña">
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-lock icon"></i>
+      <input type="password" id="confirmar" placeholder="Confirmar contraseña">
+    </div>
+
+    <button onclick="registrar()">Registrarse</button>
+
+    <div id="mensaje" class="mensaje"></div>
+
+    <div class="link">
+      ¿Ya tienes cuenta? <a href="#">Iniciar Sesión</a>
+    </div>
+  </div>
+  
+<script>
+async function registrar() {
+  const nombre = document.getElementById("nombre").value.trim();
+  const apellido = document.getElementById("apellido").value.trim();
+  const correo = document.getElementById("correo").value.trim();
+  const contrasena = document.getElementById("contrasena").value.trim();
+  const confirmar = document.getElementById("confirmar").value.trim();
+  const mensaje = document.getElementById("mensaje");
+
+  // Validación rápida en frontend
+  if (!nombre || !apellido || !correo || !contrasena || !confirmar) {
+    mensaje.className = "mensaje error";
+    mensaje.textContent = "⚠️ Por favor, completa todos los campos.";
+    return;
+  }
+
+  try {
+    // Enviar los datos al backend Flask
+    const respuesta = await fetch("http://127.0.0.1:5000/registrar", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nombre, apellido, email: correo, contrasena, confirmar })
+    });
+
+    const data = await respuesta.json();
+
+    // Mostrar el mensaje del backend (donde está la validación real)
+    if (data.estado === "ok") {
+      mensaje.className = "mensaje exito";
+      mensaje.textContent = "✅ " + data.mensaje;
+
+      // Redirigir al login si lo deseas
+      setTimeout(() => window.location.href = "login.html", 2000);
+    } else {
+      mensaje.className = "mensaje error";
+      mensaje.textContent = "❌ " + data.mensaje;
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    mensaje.className = "mensaje error";
+    mensaje.textContent = "⚠️ Error de conexión con el servidor.";
+  }
+}
+</script>
