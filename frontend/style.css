@@ -1,0 +1,314 @@
+/* === fondo === */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url("fondo_proyecto.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Estilos generales ===== */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  text-align: center;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Textos ===== */
+.welcome {
+  background-color: #000;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.divider {
+  width: 60px;
+  height: 3px;
+  background-color: #a30000;
+  margin: 10px auto 20px;
+}
+
+.text {
+  color: #333;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* ===== Botones sociales ===== */
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.social-login button {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.social-login button:hover {
+  transform: scale(1.05);
+}
+
+.social-login img {
+  width: 22px;
+  height: 22px;
+}
+
+/* ===== Separador ===== */
+.or {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.or hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+/* ===== Inputs ===== */
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+}
+
+.input-group .icon {
+  font-size: 1.2rem;
+  margin-right: 8px;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+/* ===== Enlaces ===== */
+.forgot {
+  display: block;
+  text-align: right;
+  color: #a30000;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+/* ===== Botón principal ===== */
+.btn-login {
+  background-color: #800000;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #600000;
+}
+
+/* ===== Registro ===== */
+.register-text {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.register-text a {
+  color: #a30000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ======== 📱 Responsividad ======== */
+
+/* Para pantallas pequeñas (teléfonos en vertical) */
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+    box-shadow: none;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .btn-login {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .input-group input {
+    font-size: 0.9rem;
+  }
+}
+
+/* Para pantallas medianas (tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    padding: 40px;
+  }
+
+  .container {
+    max-width: 450px;
+    padding: 25px 30px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .btn-login {
+    font-size: 1.1rem;
+    padding: 14px;
+  }
+}
+
+/* Para pantallas grandes (escritorio) */
+@media (min-width: 769px) {
+  .container {
+    max-width: 420px;
+    padding: 30px 35px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
+
+/* --- ALERTAS ESTILO CÓMIC (punta a la izquierda) --- */
+#alertContainer {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.alert {
+  position: relative;
+  background-color: #fff;
+  color: #111;
+  border: 3px solid #000;
+  border-radius: 15px;
+  padding: 14px 22px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  max-width: 260px;
+  box-shadow: 4px 4px 0 #000;
+  animation: slideIn 0.4s ease-out, fadeOut 0.5s ease 3.5s forwards;
+}
+
+/* 💬 Punta tipo globo apuntando a la izquierda */
+.alert::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: -18px; /* desplaza el triángulo hacia fuera del globo */
+  border-width: 8px 0 8px 18px;
+  border-style: solid;
+  border-color: transparent transparent transparent #000;
+}
+
+.alert.success {
+  border-color: #00c853;
+  box-shadow: 4px 4px 0 #00c853;
+}
+
+.alert.success::after {
+  border-left-color: #00c853;
+}
+
+.alert.error {
+  border-color: #d32f2f;
+  box-shadow: 4px 4px 0 #d32f2f;
+}
+
+.alert.error::after {
+  border-left-color: #d32f2f;
+}
+
+.alert.warning {
+  border-color: #f9a825;
+  box-shadow: 4px 4px 0 #f9a825;
+}
+
+.alert.warning::after {
+  border-left-color: #f9a825;
+}
+
+/* --- Animaciones --- */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+
